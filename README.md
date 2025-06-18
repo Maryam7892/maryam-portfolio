@@ -27,8 +27,7 @@ Welcome to my personal portfolio — a soft, aesthetic, and interactive space wh
 
 ## 🚀 Live Demo
 
-👉 [Click here to view the live site](https://your-vercel-link.vercel.app)  
-_(Update with your Vercel deployment link)_
+👉 [Click here to view the live site](https://maryam-amjad.vercel.app/)  
 
 ---
 
