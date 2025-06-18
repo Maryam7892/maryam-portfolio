@@ -285,7 +285,7 @@ function App() {
         />
         <HeroTitle>Hi, I'm Maryam ✨</HeroTitle>
         <HeroSubtitle>
-          AI Developer | Computer Vision Enthusiast | Generative AI Explorer
+          Artificial Intelligence Student
         </HeroSubtitle>
         <HeroButton href="#projects">View My Work</HeroButton>
       </Hero>
