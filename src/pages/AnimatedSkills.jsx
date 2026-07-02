@@ -1,23 +1,30 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import TypeOnView from "../components/TypeOnView";
 
 const Section = styled.section`
   padding: 4rem 2rem;
-  background-color: #fff0ee;
+  background-color: var(--panel-2);
+  border-top: 2px solid var(--border);
+  border-bottom: 2px solid var(--border);
   text-align: center;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2.25rem;
-  color: #ff6b6b;
-  margin-bottom: 2rem;
+  font-family: var(--font-pixel);
+  font-size: 2.4rem;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
 `;
 
 const MarqueeWrapper = styled.div`
   overflow: hidden;
   white-space: nowrap;
-  margin: 1.5rem 0;
+  margin: 1.25rem 0;
   position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 `;
 
 const scroll = keyframes`
@@ -32,19 +39,40 @@ const MarqueeTrack = styled.div`
 
 const Skill = styled.span`
   display: inline-block;
-  margin: 0 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #ffe6e6;
-  color: #d94f4f;
-  font-weight: 500;
-  border-radius: 30px;
-  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.2);
+  margin: 0 0.5rem;
+  padding: 0.4rem 0.9rem;
+  background-color: var(--panel);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+
+  &:nth-child(3n+2) {
+    background-color: var(--coral-tint);
+    border-color: var(--coral-dark);
+    color: var(--coral-dark);
+  }
+
+  &:nth-child(3n+3) {
+    background-color: var(--blue-tint);
+    border-color: var(--blue-dark);
+    color: var(--blue-dark);
+  }
 `;
 
 const SkillGroupTitle = styled.h4`
-  font-size: 1.25rem;
-  margin: 2rem 0 1rem;
-  color: #e35656;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 2rem 0 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+
+  &::before {
+    content: "// ";
+    color: var(--coral-dark);
+  }
 `;
 
 const DoubleTrack = ({ skills }) => (
@@ -60,7 +88,7 @@ const DoubleTrack = ({ skills }) => (
 const AnimatedSkills = () => {
   return (
     <Section id="skills">
-      <SectionTitle>My Skills</SectionTitle>
+      <TypeOnView as={SectionTitle} text="my skills" speed={40} />
 
       <SkillGroupTitle>Programming Languages</SkillGroupTitle>
       <DoubleTrack skills={["Python", "C", "C++", "SQL", "Javascript (basic)"]} />

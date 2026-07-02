@@ -4,78 +4,100 @@ import styled from "styled-components";
 const Nav = styled.nav`
   position: sticky;
   top: 0;
-  background-color: #fff0ee;
-  padding: 1rem 2rem;
+  background-color: var(--panel);
+  border-bottom: 2px solid var(--border);
+  padding: 0.85rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 10px rgba(255, 182, 193, 0.2);
+  flex-wrap: wrap;
+  gap: 0.75rem;
   z-index: 1000;
+  font-family: var(--font-mono);
 `;
 
 const Brand = styled.a`
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--ink);
   text-decoration: none;
+  letter-spacing: 0.5px;
+
+  &::before {
+    content: "> ";
+    color: var(--coral);
+  }
 `;
 
 const NavLinks = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 `;
 
 const StyledLink = styled.a`
-  color: #f06565;
-  font-weight: 500;
-  font-size: 1rem;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.8rem;
   cursor: pointer;
   text-decoration: none;
-  transition: color 0.2s;
+  background: var(--panel-2);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  transition: transform 0.1s ease, background 0.15s ease;
+
+  &:nth-child(3n+2) {
+    background: var(--coral-tint);
+    border-color: var(--coral-dark);
+  }
+
+  &:nth-child(3n+3) {
+    background: var(--blue-tint);
+    border-color: var(--blue-dark);
+  }
 
   &:hover {
-    color: #c94d4d;
+    background: var(--amber);
+    border-color: var(--amber-dark);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(1px);
   }
 `;
 
-const SocialLink = styled.a`
-  color: #f06565;
-  font-size: 1.2rem;
-  text-decoration: none;
-  margin-left: 1rem;
+const SocialLink = styled(StyledLink)`
+  background: var(--blue);
+  color: var(--panel);
+  border-color: var(--blue-dark);
 
   &:hover {
-    color: #c94d4d;
+    background: var(--blue-dark);
+    border-color: var(--blue-dark);
   }
-`;
-
-const ProfileImage = styled.img`
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 30px;
-  box-shadow: 0 8px 16px rgba(255, 182, 193, 0.3);
-  margin-bottom: 1.5rem;
 `;
 
 const Navbar = () => {
   return (
     <Nav>
-      <Brand href="#home">Maryam Amjad</Brand>
+      <Brand href="#home">maryam_amjad</Brand>
       <NavLinks>
-        <StyledLink href="#about">About</StyledLink>
-        <StyledLink href="#projects">Projects</StyledLink>
-        <StyledLink href="#skills">Skills</StyledLink>
-        <StyledLink href="#experience">Experience</StyledLink>
-        <StyledLink href="#certifications">Certifications</StyledLink>
-        <StyledLink href="#contact">Contact</StyledLink>
-        <SocialLink href="https://github.com/Maryam7892" target="_blank" rel="noopener noreferrer">GitHub</SocialLink>
-        <SocialLink href="https://www.linkedin.com/in/maryam-amjad-82a595243/" target="_blank" rel="noopener noreferrer">LinkedIn</SocialLink>
+        <StyledLink href="#about">about</StyledLink>
+        <StyledLink href="#projects">projects</StyledLink>
+        <StyledLink href="#skills">skills</StyledLink>
+        <StyledLink href="#experience">experience</StyledLink>
+        <StyledLink href="#certifications">certifications</StyledLink>
+        <StyledLink href="#chat">chat</StyledLink>
+        <StyledLink href="#contact">contact</StyledLink>
+        <SocialLink href="https://github.com/Maryam7892" target="_blank" rel="noopener noreferrer">github</SocialLink>
+        <SocialLink href="https://www.linkedin.com/in/maryam-amjad-82a595243/" target="_blank" rel="noopener noreferrer">linkedin</SocialLink>
       </NavLinks>
     </Nav>
   );
 };
 
 export default Navbar;
-export { ProfileImage };

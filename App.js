@@ -6,6 +6,7 @@ import ResumeDownload from "./components/ResumeDownload";
 import AnimatedSkills from "./pages/AnimatedSkills";
 import TamagotchiPet from "./components/TamagotchiPet";
 import TypeOnView from "./components/TypeOnView";
+import ChatTerminal from "./components/ChatTerminal";
 import { Typewriter } from 'react-simple-typewriter';
 
 const fadeInUp = {
@@ -309,6 +310,7 @@ const CardFront = styled.div`
   backface-visibility: hidden;
   background-color: var(--panel);
   border: 2px solid var(--border);
+  border-top: 6px solid var(--coral);
   padding: 1rem;
   border-radius: 10px;
   box-shadow: var(--shadow-sm);
@@ -325,6 +327,14 @@ const CardFront = styled.div`
   p {
     font-size: 0.85rem;
     color: var(--muted);
+  }
+
+  ${CertificateCard}:nth-child(3n+2) & {
+    border-top-color: var(--blue);
+  }
+
+  ${CertificateCard}:nth-child(3n+3) & {
+    border-top-color: var(--accent-dark);
   }
 `;
 
@@ -570,6 +580,20 @@ function App() {
       </Section>
 
       <ResumeDownload />
+
+      <Section id="chat" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <TypeOnView as={SectionTitle} text="ask me anything (professionally)" speed={25} />
+        <p style={{
+          textAlign: "center",
+          fontSize: "0.85rem",
+          color: "var(--muted)",
+          marginTop: "-1rem",
+          marginBottom: "2rem",
+        }}>
+          a small terminal bot that only knows about my work — try asking about a project or my stack.
+        </p>
+        <ChatTerminal />
+      </Section>
 
       <Section id="contact" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
         <TypeOnView as={SectionTitle} text="contact me" speed={40} />
