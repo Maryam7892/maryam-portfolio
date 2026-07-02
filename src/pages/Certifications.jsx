@@ -16,12 +16,11 @@ const List = styled.ul`
 `;
 
 const certs = [
-  "Convolutional Neural Networks – DeepLearning.AI",
+  "AWS Certified AI Practitioner – AWS (Passed, March 2026)",
   "Generative AI with LLMs – DeepLearning.AI",
   "AI Agents Using RAG & LangChain – IBM",
-  "AWS Cloud Technical Essentials – AWS",
-  "Reinforcement Learning – University of Alberta",
-  "Charts & Dashboards with Google Sheets – Coursera"
+  "Convolutional Neural Networks – DeepLearning.AI",
+  "AWS Cloud Technical Essentials – AWS"
 ];
 
 const Certifications = () => (

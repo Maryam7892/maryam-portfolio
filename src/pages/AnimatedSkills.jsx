@@ -65,11 +65,23 @@ const AnimatedSkills = () => {
       <SkillGroupTitle>Programming Languages</SkillGroupTitle>
       <DoubleTrack skills={["Python", "C", "C++", "SQL", "Javascript (basic)"]} />
 
-      <SkillGroupTitle>Frameworks & Libraries</SkillGroupTitle>
-      <DoubleTrack skills={["Numpy", "Pandas", "Scikit-Learn", "NLTK", "Matplotlib", "SpaCy", "TensorFlow", "PyTorch", "Cv2", "Keras", "Flask", "Selenium", "Hugging Face", "Transformers", "Tesseract"]} />
+      <SkillGroupTitle>ML/DL Frameworks</SkillGroupTitle>
+      <DoubleTrack skills={["TensorFlow", "PyTorch", "Keras", "Scikit-Learn"]} />
+
+      <SkillGroupTitle>LLM & GenAI Tools</SkillGroupTitle>
+      <DoubleTrack skills={["LangChain", "Groq", "Hugging Face", "Transformers", "RAGAS", "DeepEval", "Mem0", "Whisper"]} />
+
+      <SkillGroupTitle>Data, NLP & CV</SkillGroupTitle>
+      <DoubleTrack skills={["Numpy", "Pandas", "Matplotlib", "NLTK", "SpaCy", "Cv2", "Tesseract"]} />
+
+      <SkillGroupTitle>Databases</SkillGroupTitle>
+      <DoubleTrack skills={["PostgreSQL", "MySQL", "Neo4j", "Qdrant", "SQLAlchemy"]} />
 
       <SkillGroupTitle>Data & DevOps Tools</SkillGroupTitle>
-      <DoubleTrack skills={["Docker", "Apache Airflow", "Kubernetes", "MySQL", "Git", "Jenkins", "CI/CD pipelines", "Jupyter Notebook"]} />
+      <DoubleTrack skills={["Docker", "Apache Airflow", "Kubernetes", "Git", "Jenkins", "CI/CD pipelines", "MLFlow", "DVC", "Jupyter Notebook"]} />
+
+      <SkillGroupTitle>Cloud & Other</SkillGroupTitle>
+      <DoubleTrack skills={["AWS", "Flask", "Streamlit", "Selenium"]} />
 
       <SkillGroupTitle>Soft Skills</SkillGroupTitle>
       <DoubleTrack skills={["Leadership", "Event management", "Time management", "Teamwork", "Communication", "Problem Solving"]} />

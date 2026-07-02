@@ -7,7 +7,7 @@ const Home = () => {
         Hi, I'm <span className="text-teal-400">Maryam Amjad</span>
       </h1>
       <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-6">
-        AI Developer | Generative AI Enthusiast | Computer Vision Innovator
+        Junior ML Engineer @ Tensor Labs | Deep Learning | Computer Vision | NLP
       </p>
       <a
         href="https://github.com/Maryam7892"

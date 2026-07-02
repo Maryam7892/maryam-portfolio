@@ -36,16 +36,17 @@ const Detail = styled.p`
 
 const experiences = [
   {
+    role: "Junior Machine Learning Engineer",
+    company: "Tensor Labs",
+    duration: "Sep 2025 - Present",
+    details:
+      "Built real-time crypto breakout prediction pipelines (Eth Breakout), a text-to-SQL + knowledge graph query engine (DiscoverIQ) with Neo4j and Qdrant, and core modules of a multi-modal MedGemma clinical assistant. Delivered an internal workshop on Mem0 and Harness Engineering."
+  },
+  {
     role: "AI Intern",
     company: "AIM Lab Islamabad",
     duration: "Jun 2023 - Aug 2023",
     details: "Researched AI models, implemented ML algorithms, and integrated APIs for deployment."
-  },
-  {
-    role: "Lab Demonstrator - OOP",
-    company: "FAST NUCES Islamabad",
-    duration: "Jun 2023 - Dec 2023",
-    details: "Guided students with OOP concepts including inheritance, debugging, and coding."
   },
   {
     role: "Lab Demonstrator - Machine Learning",

@@ -54,45 +54,11 @@ const HeroButton = styled.a`
   }
 `;
 
-const Cursor = styled.div`
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 192, 203, 0.3);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  backdrop-filter: blur(4px);
-`;
-
 const SectionTitle = styled.h2`
   font-size: 2.25rem;
   margin-bottom: 2rem;
   color: #ff6b6b;
   text-align: center;
-`;
-
-const AboutText = styled.p`
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #4b4b4b;
-`;
-
-const BadgeGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
-`;
-
-const BadgeCard = styled.div`
-  background-color: #fff0ee;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: 500;
-  color: #d94f4f;
-  box-shadow: 0 2px 5px rgba(255, 182, 193, 0.2);
 `;
 
 const ProjectGrid = styled.div`
@@ -285,7 +251,7 @@ function App() {
         />
         <HeroTitle>Hi, I'm Maryam ✨</HeroTitle>
         <HeroSubtitle>
-          Artificial Intelligence Student
+          Junior ML Engineer @ Tensor Labs
         </HeroSubtitle>
         <HeroButton href="#projects">View My Work</HeroButton>
       </Hero>
@@ -305,7 +271,7 @@ function App() {
         >
           <Typewriter
             words={[
-              "I’m Maryam — an AI enthusiast who blends machine learning with a designer’s soul. I build experiences that feel almost human. Deep into Generative AI, Computer Vision, and NLP. Crafting intelligent systems that feel intuitive and human. Tech should be functional and beautiful."
+              "I'm Maryam — a Junior ML Engineer at Tensor Labs who blends production AI engineering with a designer's soul. I build real-time prediction pipelines, RAG/knowledge-graph systems, and multi-modal healthcare AI. Deep into LLMs, Computer Vision, and NLP. Crafting intelligent systems that feel intuitive and human. Tech should be functional and beautiful."
             ]}
             loop={true}
             cursor
@@ -322,52 +288,51 @@ function App() {
         <SectionTitle>Projects</SectionTitle>
         <ProjectGrid>
           <ProjectCard>
+            <ProjectTitle>Eth Breakout</ProjectTitle>
+            <ProjectDesc>
+              Real-time breakout prediction system for Ethereum, Dogecoin, and Solana using rule-based and ML signal logic across 5-min candles, plus a liquidation/liquidity heatmap built from open interest and funding rate data.
+              <br />
+              <strong>Technologies:</strong> Python, SQLAlchemy, Pandas, Scikit-learn, PostgreSQL, WebSockets, Streamlit
+            </ProjectDesc>
+          </ProjectCard>
+          <ProjectCard>
+            <ProjectTitle>DiscoverIQ – Text-to-SQL & Knowledge Graph Query Engine</ProjectTitle>
+            <ProjectDesc>
+              Unified natural-language query pipeline that converts chat messages into executable SQL, combining knowledge graph context retrieval with schema-aware SQL generation.
+              <br />
+              <strong>Technologies:</strong> Python, Neo4j, Qdrant, PostgreSQL, LangChain, Groq LLM
+            </ProjectDesc>
+          </ProjectCard>
+          <ProjectCard>
+            <ProjectTitle>MedGemma Multi-Modal Clinical Assistant</ProjectTitle>
+            <ProjectDesc>
+              Full-stack clinical assistant combining medical image diagnostics, prescription/medicine OCR, drug interaction checking, and personal health tracking.
+              <br />
+              <strong>Technologies:</strong> MedGemma-4b-it, Whisper-large-v3, TxGemma-9b-chat, FDA API, Python, Flask
+            </ProjectDesc>
+          </ProjectCard>
+          <ProjectCard>
+            <ProjectTitle>LLM Evaluation Toolkit</ProjectTitle>
+            <ProjectDesc>
+              Hands-on toolkit covering 12 LLM evaluation categories with runnable notebooks and an interactive Streamlit dashboard, open-sourced on GitHub and used as the basis for an internal workshop.
+              <br />
+              <strong>Technologies:</strong> Python, Groq, RAGAS, DeepEval, HuggingFace Evaluate, PromptBench, Streamlit
+            </ProjectDesc>
+          </ProjectCard>
+          <ProjectCard>
+            <ProjectTitle>Straight Egyptian Arabian Horse Knowledge Graph</ProjectTitle>
+            <ProjectDesc>
+              Interactive, fully Dockerized web app for exploring horse pedigrees, show results, stables, and bloodlines through a Neo4j graph database.
+              <br />
+              <strong>Technologies:</strong> Python, Pandas, Neo4j, Streamlit, PyVis, Docker
+            </ProjectDesc>
+          </ProjectCard>
+          <ProjectCard>
             <ProjectTitle>TherapEase – Autism Therapy Assistant</ProjectTitle>
             <ProjectDesc>
-              Developed a 3D digital twin-based system with real-time emotion detection, automated diagnostic support, and therapist dashboard for personalized autism therapy
+              Developed a 3D digital twin-based system with real-time emotion detection, automated diagnostic support, and therapist dashboard for personalized autism therapy (Final Year Project).
               <br />
               <strong>Technologies:</strong> React, Three.js, OpenCV, Flask, TensorFlow, DeepFace, MediaPipe
-            </ProjectDesc>
-          </ProjectCard>
-          <ProjectCard>
-            <ProjectTitle>Image Classification with CNN</ProjectTitle>
-            <ProjectDesc>
-              Developed a Convolutional Neural Network (CNN) achieving 90% accuracy on CIFAR-10 dataset.
-              <br />
-              <strong>Technologies:</strong> TensorFlow, Keras, Python, NumPy, Matplotlib
-            </ProjectDesc>
-          </ProjectCard>
-          <ProjectCard>
-            <ProjectTitle>Meme Sentiment Classifier</ProjectTitle>
-            <ProjectDesc>
-              Developed a sentiment classification system using six sklearn classifiers (three for images and three for text) and deployed as a Flask web application for real-time meme sentiment analysis.
-              <br />
-              <strong>Technologies:</strong> Scikit-learn, Flask, Python, TensorFlow, OpenCV, NLTK, Pandas
-            </ProjectDesc>
-          </ProjectCard>
-          <ProjectCard>
-            <ProjectTitle>Image Super-Resolution with GANs</ProjectTitle>
-            <ProjectDesc>
-              Enhanced low-resolution images using ESRGAN (Enhanced Super Resolution Generative Adversarial Network), optimizing perceptual and adversarial loss for realistic textures and high PSNR/SSIM scores.
-              <br />
-              <strong>Technologies:</strong> PyTorch, ESRGAN, Python, NumPy, OpenCV
-            </ProjectDesc>
-          </ProjectCard>
-          <ProjectCard>
-            <ProjectTitle>Slide Generator Website</ProjectTitle>
-            <ProjectDesc>
-              Generated slides from prompts with image and content suggestions.
-              <br />
-              <strong>Technologies:</strong> Flask, OpenAI API, React
-            </ProjectDesc>
-          </ProjectCard>
-          <ProjectCard>
-            <ProjectTitle>MLOps Weather Forecasting</ProjectTitle>
-            <ProjectDesc>
-              End-to-end pipeline with MLFlow, Docker, and Kubernetes for CI/CD deployment.
-              <br />
-              <strong>Technologies:</strong> MLFlow, AirFlow, Kubernetes, Docker, Flask, Python, AWS, Git, Jenkins, DVC
-               MLFlow, AirFlow, Kubernetes, Docker, Flask, Python, AWS, Git, Jenkins, DVC
             </ProjectDesc>
           </ProjectCard>
         </ProjectGrid>
@@ -378,17 +343,17 @@ function App() {
       <Section id="experience" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
         <SectionTitle>Experience</SectionTitle>
         <ExperienceEntry>
+          <ExperienceTitle>Junior Machine Learning Engineer <ExperienceOrg>@ Tensor Labs</ExperienceOrg></ExperienceTitle>
+          <ExperienceDate>Sep 2025 – Present</ExperienceDate>
+          <ExperienceDetail>
+            Built real-time crypto breakout prediction pipelines (Eth Breakout), a text-to-SQL + knowledge graph query engine (DiscoverIQ) with Neo4j and Qdrant, and core modules of a multi-modal MedGemma clinical assistant. Delivered an internal workshop on Mem0 and Harness Engineering, and authored an article on Harness Engineering and Open Knowledge Format (Medium, forthcoming).
+          </ExperienceDetail>
+        </ExperienceEntry>
+        <ExperienceEntry>
           <ExperienceTitle>AI Intern <ExperienceOrg>@ AIM Lab Islamabad</ExperienceOrg></ExperienceTitle>
           <ExperienceDate>Jun 2023 – Aug 2023</ExperienceDate>
           <ExperienceDetail>
             Developed a website that generates slides from prompts, including relevant images and structured content.
-          </ExperienceDetail>
-        </ExperienceEntry>
-        <ExperienceEntry>
-          <ExperienceTitle>Lab Demonstrator – OOP <ExperienceOrg>@ FAST NUCES</ExperienceOrg></ExperienceTitle>
-          <ExperienceDate>Jun 2023 – Aug 2023; Sep 2023 – Dec 2023</ExperienceDate>
-          <ExperienceDetail>
-            Mentored students on object-oriented programming, debugging, and implementing inheritance logic.
           </ExperienceDetail>
         </ExperienceEntry>
         <ExperienceEntry>
@@ -403,6 +368,18 @@ function App() {
       <Section id="certifications" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
         <SectionTitle>Certifications</SectionTitle>
         <CertificateGrid>
+          <CertificateCard>
+            <CardInner>
+              <CardFront>
+                <h3>AWS Certified AI Practitioner</h3>
+                <p>AWS – Passed, March 2026</p>
+              </CardFront>
+              <CardBack>
+                <p>Generative AI concepts, AWS AI/ML services</p>
+              </CardBack>
+            </CardInner>
+          </CertificateCard>
+
           <CertificateCard>
             <CardInner>
               <CardFront>
@@ -447,30 +424,6 @@ function App() {
               </CardFront>
               <CardBack>
                 <p>AWS EC2, S3, IAM, Lambda</p>
-              </CardBack>
-            </CardInner>
-          </CertificateCard>
-
-          <CertificateCard>
-            <CardInner>
-              <CardFront>
-                <h3>Reinforcement Learning</h3>
-                <p>University of Alberta</p>
-              </CardFront>
-              <CardBack>
-                <p>Markov Decision Process, Q-learning</p>
-              </CardBack>
-            </CardInner>
-          </CertificateCard>
-
-          <CertificateCard>
-            <CardInner>
-              <CardFront>
-                <h3>Google Sheets Dashboards</h3>
-                <p>Coursera</p>
-              </CardFront>
-              <CardBack>
-                <p>Data Viz, Dynamic Sheets, Pivot Tables</p>
               </CardBack>
             </CardInner>
           </CertificateCard>

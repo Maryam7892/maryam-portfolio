@@ -2,34 +2,40 @@ import React from "react";
 
 const projects = [
   {
-    title: "TherapEase – Autism Therapy Assistant",
+    title: "Eth Breakout",
+    description:
+      "Real-time breakout prediction system for Ethereum, Dogecoin, and Solana using rule-based and ML signal logic across 5-min candles, plus a liquidation/liquidity heatmap built from open interest and funding rate data.",
+    tech: "Python, SQLAlchemy, Pandas, Scikit-learn, PostgreSQL, WebSockets, Streamlit"
+  },
+  {
+    title: "DiscoverIQ – Text-to-SQL & Knowledge Graph Query Engine",
+    description:
+      "Unified natural-language query pipeline that converts chat messages into executable SQL, combining knowledge graph context retrieval with schema-aware SQL generation.",
+    tech: "Python, Neo4j, Qdrant, PostgreSQL, LangChain, Groq LLM"
+  },
+  {
+    title: "MedGemma Multi-Modal Clinical Assistant",
+    description:
+      "Full-stack clinical assistant combining medical image diagnostics, prescription/medicine OCR, drug interaction checking, and personal health tracking.",
+    tech: "MedGemma-4b-it, Whisper-large-v3, TxGemma-9b-chat, FDA API, Python, Flask"
+  },
+  {
+    title: "LLM Evaluation Toolkit",
+    description:
+      "Hands-on toolkit covering 12 LLM evaluation categories with runnable notebooks and an interactive Streamlit dashboard, open-sourced on GitHub and used as the basis for an internal workshop.",
+    tech: "Python, Groq, RAGAS, DeepEval, HuggingFace Evaluate, PromptBench, Streamlit"
+  },
+  {
+    title: "Straight Egyptian Arabian Horse Knowledge Graph",
+    description:
+      "Interactive, fully Dockerized web app for exploring horse pedigrees, show results, stables, and bloodlines through a Neo4j graph database.",
+    tech: "Python, Pandas, Neo4j, Streamlit, PyVis, Docker"
+  },
+  {
+    title: "TherapEase – Autism Therapy Assistant (Final Year Project)",
     description:
       "3D digital twin system with real-time emotion detection and diagnostic support for autism therapy.",
-    tech: "React, Three.js, OpenCV, Flask, DeepFace"
-  },
-  {
-    title: "Image Classification with CNN",
-    description:
-      "CNN model achieving 90% accuracy on the CIFAR-10 dataset.",
-    tech: "TensorFlow, Keras, Python"
-  },
-  {
-    title: "Meme Classification",
-    description:
-      "Sentiment classifier using multi-modal features deployed via Flask web app.",
-    tech: "Scikit-learn, TensorFlow, Flask"
-  },
-  {
-    title: "Image Super-Resolution with GANs",
-    description:
-      "Enhanced image quality using ESRGAN for perceptual and adversarial optimization.",
-    tech: "PyTorch, ESRGAN"
-  },
-  {
-    title: "MLOps Pipeline for Weather Prediction",
-    description:
-      "CI/CD integrated MLOps pipeline for weather prediction using MLFlow, AirFlow, and Kubernetes.",
-    tech: "Docker, MLFlow, AirFlow, Jenkins"
+    tech: "React, Three.js, OpenCV, MediaPipe, Flask, TensorFlow, DeepFace"
   }
 ];
 
