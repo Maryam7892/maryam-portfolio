@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { playBlip } from "../utils/sound";
 
 const TypeOnView = ({ text, speed = 35, as: Tag = "span", ...rest }) => {
   const ref = useRef(null);
@@ -13,6 +14,7 @@ const TypeOnView = ({ text, speed = 35, as: Tag = "span", ...rest }) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisible(true);
+            playBlip();
             observer.disconnect();
           }
         });

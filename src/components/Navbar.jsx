@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { playClick, startAmbient, stopAmbient } from "../utils/sound";
 
 const Nav = styled.nav`
   position: sticky;
@@ -72,29 +73,77 @@ const StyledLink = styled.a`
 
 const SocialLink = styled(StyledLink)`
   background: var(--blue);
-  color: var(--panel);
+  color: #ffffff;
   border-color: var(--blue-dark);
 
   &:hover {
     background: var(--blue-dark);
     border-color: var(--blue-dark);
+    color: #ffffff;
+  }
+`;
+
+const MusicToggle = styled.button`
+  color: var(--panel);
+  font-weight: 700;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  background: var(--amber);
+  border: 1.5px solid var(--amber-dark);
+  border-radius: 6px;
+  padding: 0.4rem 0.7rem;
+  transition: transform 0.1s ease, background 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(1px);
   }
 `;
 
 const Navbar = () => {
+  const [musicOn, setMusicOn] = useState(false);
+
+  const toggleMusic = () => {
+    playClick();
+    if (musicOn) {
+      stopAmbient();
+      setMusicOn(false);
+    } else {
+      startAmbient();
+      setMusicOn(true);
+    }
+  };
+
   return (
     <Nav>
-      <Brand href="#home">maryam_amjad</Brand>
+      <Brand href="#home" onClick={playClick}>maryam_amjad</Brand>
       <NavLinks>
-        <StyledLink href="#about">about</StyledLink>
-        <StyledLink href="#projects">projects</StyledLink>
-        <StyledLink href="#skills">skills</StyledLink>
-        <StyledLink href="#experience">experience</StyledLink>
-        <StyledLink href="#certifications">certifications</StyledLink>
-        <StyledLink href="#chat">chat</StyledLink>
-        <StyledLink href="#contact">contact</StyledLink>
-        <SocialLink href="https://github.com/Maryam7892" target="_blank" rel="noopener noreferrer">github</SocialLink>
-        <SocialLink href="https://www.linkedin.com/in/maryam-amjad-82a595243/" target="_blank" rel="noopener noreferrer">linkedin</SocialLink>
+        <StyledLink href="#about" onClick={playClick}>about</StyledLink>
+        <StyledLink href="#projects" onClick={playClick}>projects</StyledLink>
+        <StyledLink href="#skills" onClick={playClick}>skills</StyledLink>
+        <StyledLink href="#experience" onClick={playClick}>experience</StyledLink>
+        <StyledLink href="#education" onClick={playClick}>education</StyledLink>
+        <StyledLink href="#certifications" onClick={playClick}>certifications</StyledLink>
+        <StyledLink
+          href="#chat"
+          onClick={(e) => {
+            e.preventDefault();
+            playClick();
+            window.dispatchEvent(new CustomEvent("open-chat"));
+          }}
+        >
+          chat
+        </StyledLink>
+        <StyledLink href="#contact" onClick={playClick}>contact</StyledLink>
+        <SocialLink href="https://github.com/Maryam7892" target="_blank" rel="noopener noreferrer" onClick={playClick}>github</SocialLink>
+        <SocialLink href="https://www.linkedin.com/in/maryam-amjad-82a595243/" target="_blank" rel="noopener noreferrer" onClick={playClick}>linkedin</SocialLink>
+        <MusicToggle onClick={toggleMusic} aria-label="toggle background music">
+          {musicOn ? "♪ music: on" : "♪ music: off"}
+        </MusicToggle>
       </NavLinks>
     </Nav>
   );

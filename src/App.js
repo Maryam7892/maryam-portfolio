@@ -6,6 +6,8 @@ import ResumeDownload from "./components/ResumeDownload";
 import AnimatedSkills from "./pages/AnimatedSkills";
 import TamagotchiPet from "./components/TamagotchiPet";
 import TypeOnView from "./components/TypeOnView";
+import FloatingChat from "./components/FloatingChat";
+import { playClick, playSend } from "./utils/sound";
 import { Typewriter } from 'react-simple-typewriter';
 
 const fadeInUp = {
@@ -200,10 +202,25 @@ const ExperienceDate = styled.p`
   font-family: var(--font-mono);
 `;
 
-const ExperienceDetail = styled.p`
+const ExperienceDetail = styled.ul`
   font-size: 0.9rem;
   color: var(--muted);
   line-height: 1.6;
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+
+  li {
+    margin-bottom: 0.35rem;
+  }
+
+  strong {
+    color: var(--ink);
+  }
+`;
+
+const EducationEntry = styled.div`
+  border-left: 4px solid var(--accent-dark);
+  padding-left: 1.25rem;
 `;
 
 const CertificateGrid = styled.div`
@@ -216,6 +233,15 @@ const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`;
+
+const ContactMeta = styled.p`
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  line-height: 1.7;
 `;
 
 const Input = styled.input`
@@ -309,6 +335,7 @@ const CardFront = styled.div`
   backface-visibility: hidden;
   background-color: var(--panel);
   border: 2px solid var(--border);
+  border-top: 6px solid var(--coral);
   padding: 1rem;
   border-radius: 10px;
   box-shadow: var(--shadow-sm);
@@ -325,6 +352,14 @@ const CardFront = styled.div`
   p {
     font-size: 0.85rem;
     color: var(--muted);
+  }
+
+  ${CertificateCard}:nth-child(3n+2) & {
+    border-top-color: var(--blue);
+  }
+
+  ${CertificateCard}:nth-child(3n+3) & {
+    border-top-color: var(--accent-dark);
   }
 `;
 
@@ -362,7 +397,7 @@ function App() {
       position: fixed;
       width: 22px;
       height: 22px;
-      border: 2px solid #3a3630;
+      border: 2px solid #d8cdb0;
       border-radius: 4px;
       pointer-events: none;
       transform: translate(-50%, -50%);
@@ -381,16 +416,17 @@ function App() {
     <div>
       <Navbar />
       <Hero id="home">
-        <HeroKicker>portfolio_os v1.0</HeroKicker>
+        <HeroKicker>AI/ML Engineer</HeroKicker>
         <TypeOnView as={HeroTitle} text="Hi, I'm Maryam." speed={55} />
         <HeroSubtitle>
-          Junior ML Engineer @ Tensor Labs. Building things that beep, click,
-          and occasionally judge my life choices.
+          Junior ML Engineer @ Tensor Labs, building production-grade LLM systems:
+          real-time prediction pipelines, RAG architectures, and multi-modal
+          healthcare AI. Things that beep, click, and occasionally judge my life choices.
         </HeroSubtitle>
         <TamagotchiPet />
         <HeroButtons style={{ marginTop: "2rem" }}>
-          <HeroButton href="#projects">view my work</HeroButton>
-          <HeroButtonGhost href="#resume">get resume</HeroButtonGhost>
+          <HeroButton href="#projects" onClick={playClick}>view my work</HeroButton>
+          <HeroButtonGhost href="#resume" onClick={playClick}>get resume</HeroButtonGhost>
         </HeroButtons>
       </Hero>
 
@@ -410,7 +446,7 @@ function App() {
         >
           <Typewriter
             words={[
-              "I'm Maryam — a Junior ML Engineer at Tensor Labs who blends production AI engineering with a designer's soul. I build real-time prediction pipelines, RAG/knowledge-graph systems, and multi-modal healthcare AI. Deep into LLMs, Computer Vision, and NLP. Crafting intelligent systems that feel intuitive and human. Tech should be functional and beautiful."
+              "I'm Maryam, an AI/ML Engineer specializing in production-grade, LLM-powered systems: real-time prediction pipelines, Retrieval-Augmented Generation (RAG) architectures, knowledge-graph-based query engines, and multi-modal healthcare AI. Strong foundation in Python, Deep Learning, Computer Vision, and NLP, with hands-on experience across the full ML lifecycle: data pipeline engineering, model integration, evaluation, and cloud deployment on AWS."
             ]}
             loop={true}
             cursor
@@ -424,28 +460,28 @@ function App() {
 
 
       <Section id="projects" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-        <TypeOnView as={SectionTitle} text="projects" speed={40} />
+        <TypeOnView as={SectionTitle} text="key projects" speed={40} />
         <ProjectGrid>
           <ProjectCard>
-            <ProjectTitle>Eth Breakout</ProjectTitle>
+            <ProjectTitle>Eth Breakout: Real-Time Crypto Prediction System</ProjectTitle>
             <ProjectDesc>
-              Real-time breakout prediction system for Ethereum, Dogecoin, and Solana using rule-based and ML signal logic across 5-min candles, plus a liquidation/liquidity heatmap built from open interest and funding rate data.
+              Real-time breakout prediction system for Ethereum, Dogecoin, and Solana using rule-based and machine learning signal generation across 5-minute market candles, plus a liquidation/liquidity heatmap module visualizing leveraged position risk from open interest and funding-rate data.
               <br />
               <strong>Technologies:</strong> Python, SQLAlchemy, Pandas, Scikit-learn, PostgreSQL, WebSockets, Streamlit
             </ProjectDesc>
           </ProjectCard>
           <ProjectCard>
-            <ProjectTitle>DiscoverIQ – Text-to-SQL & Knowledge Graph Query Engine</ProjectTitle>
+            <ProjectTitle>DiscoverIQ: RAG-Based Text-to-SQL & Knowledge Graph Query Engine</ProjectTitle>
             <ProjectDesc>
-              Unified natural-language query pipeline that converts chat messages into executable SQL, combining knowledge graph context retrieval with schema-aware SQL generation.
+              End-to-end Retrieval-Augmented Generation (RAG) system that converts natural language into executable SQL queries, combining Neo4j knowledge-graph retrieval, Qdrant vector search, and LLM-based query generation for schema-aware SQL execution.
               <br />
               <strong>Technologies:</strong> Python, Neo4j, Qdrant, PostgreSQL, LangChain, Groq LLM
             </ProjectDesc>
           </ProjectCard>
           <ProjectCard>
-            <ProjectTitle>MedGemma Multi-Modal Clinical Assistant</ProjectTitle>
+            <ProjectTitle>MedGemma: Multi-Modal Clinical AI Assistant</ProjectTitle>
             <ProjectDesc>
-              Full-stack clinical assistant combining medical image diagnostics, prescription/medicine OCR, drug interaction checking, and personal health tracking.
+              Full-stack, multi-modal clinical AI assistant integrating vision-language models for medical image diagnostics, OCR-based prescription reading, and LLM-driven drug-interaction checking, alongside personal health tracking.
               <br />
               <strong>Technologies:</strong> MedGemma-4b-it, Whisper-large-v3, TxGemma-9b-chat, FDA API, Python, Flask
             </ProjectDesc>
@@ -453,7 +489,7 @@ function App() {
           <ProjectCard>
             <ProjectTitle>LLM Evaluation Toolkit</ProjectTitle>
             <ProjectDesc>
-              Hands-on toolkit covering 12 LLM evaluation categories with runnable notebooks and an interactive Streamlit dashboard, open-sourced on GitHub and used as the basis for an internal workshop.
+              Open-source evaluation toolkit covering 12 LLM evaluation categories (text generation, summarization, RAG, text-to-SQL, safety & robustness, long-context reasoning, multi-modal, and more), with runnable notebooks and an interactive Streamlit dashboard; used as the basis for an internal engineering workshop.
               <br />
               <strong>Technologies:</strong> Python, Groq, RAGAS, DeepEval, HuggingFace Evaluate, PromptBench, Streamlit
             </ProjectDesc>
@@ -467,9 +503,9 @@ function App() {
             </ProjectDesc>
           </ProjectCard>
           <ProjectCard>
-            <ProjectTitle>TherapEase – Autism Therapy Assistant</ProjectTitle>
+            <ProjectTitle>TherapEase: Autism Therapy Assistant</ProjectTitle>
             <ProjectDesc>
-              Developed a 3D digital twin-based system with real-time emotion detection, automated diagnostic support, and therapist dashboard for personalized autism therapy (Final Year Project).
+              3D digital twin-based system with real-time emotion detection, automated diagnostic support, and a therapist dashboard for personalized autism therapy (final year project).
               <br />
               <strong>Technologies:</strong> React, Three.js, OpenCV, Flask, TensorFlow, DeepFace, MediaPipe
             </ProjectDesc>
@@ -485,23 +521,39 @@ function App() {
           <ExperienceTitle>Junior Machine Learning Engineer <ExperienceOrg>@ Tensor Labs</ExperienceOrg></ExperienceTitle>
           <ExperienceDate>Sep 2025 – Present</ExperienceDate>
           <ExperienceDetail>
-            Built real-time crypto breakout prediction pipelines (Eth Breakout), a text-to-SQL + knowledge graph query engine (DiscoverIQ) with Neo4j and Qdrant, and core modules of a multi-modal MedGemma clinical assistant. Delivered an internal workshop on Mem0 and Harness Engineering, and authored an article on Harness Engineering and Open Knowledge Format (Medium, forthcoming).
+            <li><strong>Real-time ML prediction pipelines:</strong> designed and deployed pipelines to detect breakout patterns across Ethereum, Dogecoin, and Solana, processing streaming market data at 5-minute intervals.</li>
+            <li><strong>RAG-based query engine (DiscoverIQ):</strong> engineered a RAG pipeline translating natural language into SQL, integrating a Neo4j knowledge graph, Qdrant vector search, and LLM-based query generation over PostgreSQL.</li>
+            <li><strong>Multi-modal clinical AI assistant (MedGemma):</strong> built core modules for medical image diagnostics, prescription OCR, and drug-interaction checks using vision-language and LLM models.</li>
+            <li><strong>Data pipeline reliability:</strong> diagnosed and resolved timestamp/interval synchronization and signal threshold issues to improve prediction reliability and uptime.</li>
+            <li><strong>Technical workshops:</strong> delivered internal workshops on Mem0 (LLM memory systems) and Harness Engineering; authored an article on Harness Engineering and Open Knowledge Format (Medium, forthcoming).</li>
           </ExperienceDetail>
         </ExperienceEntry>
         <ExperienceEntry>
-          <ExperienceTitle>AI Intern <ExperienceOrg>@ AIM Lab Islamabad</ExperienceOrg></ExperienceTitle>
+          <ExperienceTitle>Artificial Intelligence Intern <ExperienceOrg>@ AIM Lab, Islamabad</ExperienceOrg></ExperienceTitle>
           <ExperienceDate>Jun 2023 – Aug 2023</ExperienceDate>
           <ExperienceDetail>
-            Developed a website that generates slides from prompts, including relevant images and structured content.
+            <li>Built a tool that auto-generates presentation slide decks from natural language prompts using NLP and computer vision techniques.</li>
+            <li>Applied pre-trained vision models for content understanding and image matching tasks.</li>
           </ExperienceDetail>
         </ExperienceEntry>
         <ExperienceEntry>
-          <ExperienceTitle>Lab Demonstrator – ML <ExperienceOrg>@ FAST NUCES</ExperienceOrg></ExperienceTitle>
+          <ExperienceTitle>Lab Demonstrator – Machine Learning <ExperienceOrg>@ FAST NUCES Islamabad</ExperienceOrg></ExperienceTitle>
           <ExperienceDate>Sep 2024 – Dec 2024</ExperienceDate>
           <ExperienceDetail>
-            Assisted in feature engineering, model optimization, hyperparameter tuning, and conducted live demos.
+            <li>Led weekly lab sessions on feature engineering, hyperparameter tuning, and applied machine learning demonstrations for undergraduate students.</li>
           </ExperienceDetail>
         </ExperienceEntry>
+      </Section>
+
+      <Section id="education" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <TypeOnView as={SectionTitle} text="education" speed={40} />
+        <EducationEntry>
+          <ExperienceTitle>B.S. in Artificial Intelligence <ExperienceOrg>@ FAST NUCES, Islamabad</ExperienceOrg></ExperienceTitle>
+          <ExperienceDate>Jul 2021 – Jun 2025</ExperienceDate>
+          <ExperienceDetail>
+            <li>Relevant coursework: Deep Learning, Generative AI, Computer Vision, NLP.</li>
+          </ExperienceDetail>
+        </EducationEntry>
       </Section>
 
       <Section id="certifications" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -511,7 +563,7 @@ function App() {
             <CardInner>
               <CardFront>
                 <h3>AWS Certified AI Practitioner</h3>
-                <p>AWS – Passed, March 2026</p>
+                <p>AWS, Passed March 2026</p>
               </CardFront>
               <CardBack>
                 <p>Generative AI concepts, AWS AI/ML services</p>
@@ -522,20 +574,8 @@ function App() {
           <CertificateCard>
             <CardInner>
               <CardFront>
-                <h3>Convolutional Neural Networks</h3>
-                <p>DeepLearning.AI</p>
-              </CardFront>
-              <CardBack>
-                <p>CNNs, Keras, TensorFlow, Feature Maps</p>
-              </CardBack>
-            </CardInner>
-          </CertificateCard>
-
-          <CertificateCard>
-            <CardInner>
-              <CardFront>
                 <h3>Generative AI with LLMs</h3>
-                <p>DeepLearning.AI</p>
+                <p>DeepLearning.AI, 2025</p>
               </CardFront>
               <CardBack>
                 <p>Prompting, Transformers, Chatbots</p>
@@ -546,8 +586,8 @@ function App() {
           <CertificateCard>
             <CardInner>
               <CardFront>
-                <h3>AI Agents Using RAG & LangChain</h3>
-                <p>IBM</p>
+                <h3>AI Agents with RAG & LangChain</h3>
+                <p>IBM, 2025</p>
               </CardFront>
               <CardBack>
                 <p>LangChain, RAG, Retrieval QA, LLM APIs</p>
@@ -558,8 +598,20 @@ function App() {
           <CertificateCard>
             <CardInner>
               <CardFront>
-                <h3>AWS Cloud Technical Essentials</h3>
-                <p>AWS</p>
+                <h3>Convolutional Neural Networks</h3>
+                <p>DeepLearning.AI, 2024</p>
+              </CardFront>
+              <CardBack>
+                <p>CNNs, Keras, TensorFlow, Feature Maps</p>
+              </CardBack>
+            </CardInner>
+          </CertificateCard>
+
+          <CertificateCard>
+            <CardInner>
+              <CardFront>
+                <h3>AWS Cloud Essentials</h3>
+                <p>AWS, 2025</p>
               </CardFront>
               <CardBack>
                 <p>AWS EC2, S3, IAM, Lambda</p>
@@ -573,8 +625,12 @@ function App() {
 
       <Section id="contact" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
         <TypeOnView as={SectionTitle} text="contact me" speed={40} />
+        <ContactMeta>
+          maryamamjad7892@gmail.com &nbsp;·&nbsp; +92-323-5519235 &nbsp;·&nbsp; Islamabad, Pakistan
+        </ContactMeta>
         <ContactForm onSubmit={(e) => {
           e.preventDefault();
+          playSend();
           window.location.href = "mailto:maryamamjad7892@gmail.com";
         }}>
           <Input type="text" placeholder="Your Name" required />
@@ -583,6 +639,8 @@ function App() {
           <SubmitButton type="submit">send message</SubmitButton>
         </ContactForm>
       </Section>
+
+      <FloatingChat />
     </div>
   );
 }

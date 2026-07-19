@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { playSend } from "../utils/sound";
 
 const Screen = styled.div`
   background: #1c1f1a;
@@ -99,7 +100,7 @@ const INITIAL = [
   {
     role: "assistant",
     content:
-      "hi, I'm maryam's portfolio bot. ask me about her projects, skills, experience, or how to get in touch.",
+      "hi, I'm maryam's portfolio bot. ask me about her projects, skills, experience, education, or how to get in touch.",
   },
 ];
 
@@ -117,6 +118,7 @@ const ChatTerminal = () => {
     e.preventDefault();
     const text = input.trim();
     if (!text || loading) return;
+    playSend();
     const next = [...messages, { role: "user", content: text }];
     setMessages(next);
     setInput("");
@@ -127,10 +129,43 @@ const ChatTerminal = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: next }),
       });
+
+      const contentType = res.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        // Most common cause: this environment doesn't run the /api serverless
+        // function at all (e.g. plain `npm start`), so the request hits CRA's
+        // dev server and comes back as an HTML 404 page instead of JSON.
+        setMessages([
+          ...next,
+          {
+            role: "assistant",
+            content:
+              "[dev note] /api/chat isn't reachable here — this needs `vercel dev` or a real Vercel deployment, plain `npm start` doesn't run serverless functions.",
+          },
+        ]);
+        return;
+      }
+
       const data = await res.json();
+
+      if (!res.ok) {
+        const knownErrors = {
+          server_not_configured:
+            "[dev note] GROQ_API_KEY isn't set for this environment. A local .env file only works with `vercel dev` — the deployed site needs the key added in Vercel's dashboard under Settings -> Environment Variables (then redeploy).",
+          upstream_error: "having trouble reaching the AI service right now, try again in a moment.",
+          method_not_allowed: "[dev note] unexpected request method.",
+          no_messages: "[dev note] no message content was sent.",
+        };
+        setMessages([
+          ...next,
+          { role: "assistant", content: knownErrors[data.error] || `[dev note] server error (${data.error || res.status}).` },
+        ]);
+        return;
+      }
+
       setMessages([
         ...next,
-        { role: "assistant", content: data.reply || "…connection lost, try again." },
+        { role: "assistant", content: data.reply || "I can only chat about Maryam's work and experience: try asking about her projects, skills, or background!" },
       ]);
     } catch {
       setMessages([...next, { role: "assistant", content: "…connection lost, try again." }]);
@@ -145,7 +180,7 @@ const ChatTerminal = () => {
         <Dot $color="#e35656" />
         <Dot $color="#e0a545" />
         <Dot $color="#8fd98f" />
-        <TopLabel>maryam_bot — professional Q&A only</TopLabel>
+        <TopLabel>maryam_bot: professional Q&A only</TopLabel>
       </TopBar>
       <Log ref={logRef}>
         {messages.map((m, i) => (

@@ -90,29 +90,26 @@ const AnimatedSkills = () => {
     <Section id="skills">
       <TypeOnView as={SectionTitle} text="my skills" speed={40} />
 
-      <SkillGroupTitle>Programming Languages</SkillGroupTitle>
-      <DoubleTrack skills={["Python", "C", "C++", "SQL", "Javascript (basic)"]} />
+      <SkillGroupTitle>Programming</SkillGroupTitle>
+      <DoubleTrack skills={["Python", "C++", "C", "SQL"]} />
 
       <SkillGroupTitle>ML/DL Frameworks</SkillGroupTitle>
-      <DoubleTrack skills={["TensorFlow", "PyTorch", "Keras", "Scikit-Learn"]} />
+      <DoubleTrack skills={["TensorFlow", "PyTorch", "Keras", "Scikit-learn"]} />
 
-      <SkillGroupTitle>LLM & GenAI Tools</SkillGroupTitle>
-      <DoubleTrack skills={["LangChain", "Groq", "Hugging Face", "Transformers", "RAGAS", "DeepEval", "Mem0", "Whisper"]} />
+      <SkillGroupTitle>LLM & GenAI</SkillGroupTitle>
+      <DoubleTrack skills={["LangChain", "Groq", "Hugging Face", "Transformers", "RAG", "Vector Databases", "Prompt Engineering", "RAGAS", "DeepEval", "Mem0", "Whisper"]} />
 
-      <SkillGroupTitle>Data, NLP & CV</SkillGroupTitle>
-      <DoubleTrack skills={["Numpy", "Pandas", "Matplotlib", "NLTK", "SpaCy", "Cv2", "Tesseract"]} />
+      <SkillGroupTitle>Data / NLP / CV</SkillGroupTitle>
+      <DoubleTrack skills={["Pandas", "NumPy", "Matplotlib", "OpenCV", "NLTK", "SpaCy", "Tesseract"]} />
 
       <SkillGroupTitle>Databases</SkillGroupTitle>
       <DoubleTrack skills={["PostgreSQL", "MySQL", "Neo4j", "Qdrant", "SQLAlchemy"]} />
 
-      <SkillGroupTitle>Data & DevOps Tools</SkillGroupTitle>
-      <DoubleTrack skills={["Docker", "Apache Airflow", "Kubernetes", "Git", "Jenkins", "CI/CD pipelines", "MLFlow", "DVC", "Jupyter Notebook"]} />
+      <SkillGroupTitle>MLOps / DevOps</SkillGroupTitle>
+      <DoubleTrack skills={["Docker", "Kubernetes", "Jenkins", "Airflow", "MLFlow", "CI/CD", "DVC", "Git"]} />
 
       <SkillGroupTitle>Cloud & Other</SkillGroupTitle>
-      <DoubleTrack skills={["AWS", "Flask", "Streamlit", "Selenium"]} />
-
-      <SkillGroupTitle>Soft Skills</SkillGroupTitle>
-      <DoubleTrack skills={["Leadership", "Event management", "Time management", "Teamwork", "Communication", "Problem Solving"]} />
+      <DoubleTrack skills={["AWS", "Flask", "Streamlit", "Selenium", "Jupyter Notebook"]} />
     </Section>
   );
 };

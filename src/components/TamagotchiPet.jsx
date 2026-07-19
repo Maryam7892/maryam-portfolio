@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { playPoke } from "../utils/sound";
 
 const Shell = styled.div`
   background: var(--accent);
@@ -38,7 +39,7 @@ const Screen = styled.div`
   font-size: 40px;
   line-height: 1;
   font-family: var(--font-mono);
-  color: var(--ink);
+  color: var(--panel);
 `;
 
 const Mood = styled.div`
@@ -49,7 +50,7 @@ const Mood = styled.div`
   font-size: 0.75rem;
   line-height: 1.2;
   margin-top: 10px;
-  color: var(--ink);
+  color: var(--panel);
   font-weight: 700;
 `;
 
@@ -70,14 +71,14 @@ const Bar = styled.div`
 
 const Hint = styled.div`
   font-size: 0.62rem;
-  color: var(--accent-dark);
+  color: var(--panel);
   margin-top: 8px;
 `;
 
 const STATES = [
-  { face: "(•ᴥ•)", mood: "mood: caffeinated", colors: ["var(--coral)", "var(--amber)", "var(--ink)"] },
-  { face: "( ◕‿◕)", mood: "mood: shipping code", colors: ["var(--blue)", "var(--ink)", "var(--ink)"] },
-  { face: "(¬‿¬)", mood: "mood: debugging", colors: ["var(--coral)", "transparent", "var(--ink)"] },
+  { face: "(•ᴥ•)", mood: "mood: caffeinated", colors: ["var(--coral)", "var(--amber)", "var(--panel)"] },
+  { face: "( ◕‿◕)", mood: "mood: shipping code", colors: ["var(--blue)", "var(--panel)", "var(--panel)"] },
+  { face: "(¬‿¬)", mood: "mood: debugging", colors: ["var(--coral)", "transparent", "var(--panel)"] },
   { face: "( ˘ ³˘)", mood: "mood: needs coffee", colors: ["var(--amber)", "transparent", "transparent"] },
   { face: "(★‿★)", mood: "mood: deploy succeeded", colors: ["var(--coral)", "var(--amber)", "var(--blue)"] },
 ];
@@ -86,7 +87,10 @@ const TamagotchiPet = () => {
   const [index, setIndex] = useState(0);
   const current = STATES[index];
 
-  const poke = () => setIndex((i) => (i + 1) % STATES.length);
+  const poke = () => {
+    playPoke();
+    setIndex((i) => (i + 1) % STATES.length);
+  };
 
   return (
     <Shell

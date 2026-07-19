@@ -1,27 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=VT323&display=swap');
-
 :root {
-  --bg: #f4efe4;
-  --panel: #fffdf7;
-  --panel-2: #efe8d8;
-  --ink: #3a3630;
-  --muted: #6b6455;
-  --muted-2: #8a8272;
-  --accent: #c9d9b8;
-  --accent-2: #dbe8cd;
-  --accent-dark: #4a5a3a;
-  --amber: #e0a545;
-  --amber-dark: #96691f;
-  --coral: #d1603d;
-  --coral-dark: #963f24;
-  --coral-tint: #f5ddd2;
-  --blue: #4a7a8c;
-  --blue-dark: #2c4c58;
-  --blue-tint: #d9e6ea;
-  --border: #3a3630;
+  --bg: #14171a;
+  --panel: #1e2116;
+  --panel-2: #262a1c;
+  --ink: #f2ead9;
+  --muted: #b7ac90;
+  --muted-2: #8f8567;
+
+  --accent: #587a3a;
+  --accent-2: #b9dc95;
+  --accent-dark: #7fae55;
+
+  --coral: #e8845a;
+  --coral-dark: #c25f3a;
+  --coral-tint: #2e1d15;
+
+  --blue: #6fb8cf;
+  --blue-dark: #457f92;
+  --blue-tint: #14262b;
+
+  --amber: #f0b35c;
+  --amber-dark: #c98f3f;
+
+  --border: #d8cdb0;
   --radius: 8px;
-  --shadow: 4px 4px 0 #3a3630;
-  --shadow-sm: 2px 2px 0 #3a3630;
+  --shadow: 4px 4px 0 #d8cdb0;
+  --shadow-sm: 2px 2px 0 #d8cdb0;
   --font-mono: 'Space Mono', 'Courier New', monospace;
   --font-pixel: 'VT323', 'Courier New', monospace;
 }
@@ -62,7 +65,7 @@ button {
 
 ::selection {
   background: var(--amber);
-  color: var(--ink);
+  color: var(--panel);
 }
 
 @keyframes type-cursor {

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import TypeOnView from "./TypeOnView";
+import { playClick } from "../utils/sound";
 
 const ResumeSection = styled.section`
   background-color: var(--panel-2);
@@ -69,6 +70,7 @@ const ResumeDownload = () => {
         download="Maryam_Amjad_Resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={playClick}
       >
         download resume
       </ResumeButton>
