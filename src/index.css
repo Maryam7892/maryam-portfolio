@@ -1,32 +1,33 @@
 :root {
-  --bg: #14171a;
-  --panel: #1e2116;
-  --panel-2: #262a1c;
-  --ink: #f2ead9;
-  --muted: #b7ac90;
-  --muted-2: #8f8567;
+  --bg: #0a0a0f;
+  --panel: #131320;
+  --panel-2: #191928;
+  --ink: #f2eefc;
+  --muted: #b6afc9;
+  --muted-2: #837c99;
 
-  --accent: #587a3a;
-  --accent-2: #b9dc95;
-  --accent-dark: #7fae55;
+  --accent: #5b4bb0;
+  --accent-2: #b9a6ff;
+  --accent-dark: #7c5cff;
 
-  --coral: #e8845a;
-  --coral-dark: #c25f3a;
-  --coral-tint: #2e1d15;
+  --coral: #8b6fd6;
+  --coral-dark: #5b4bb0;
+  --coral-tint: #1c1730;
 
-  --blue: #6fb8cf;
-  --blue-dark: #457f92;
-  --blue-tint: #14262b;
+  --blue: #b9a6ff;
+  --blue-dark: #7c5cff;
+  --blue-tint: #1c1730;
 
-  --amber: #f0b35c;
-  --amber-dark: #c98f3f;
+  --amber: #a08ce0;
+  --amber-dark: #6f56b8;
 
-  --border: #d8cdb0;
+  --border: #e3ddf5;
   --radius: 8px;
-  --shadow: 4px 4px 0 #d8cdb0;
-  --shadow-sm: 2px 2px 0 #d8cdb0;
+  --shadow: 4px 4px 0 #e3ddf5;
+  --shadow-sm: 2px 2px 0 #e3ddf5;
   --font-mono: 'Space Mono', 'Courier New', monospace;
   --font-pixel: 'VT323', 'Courier New', monospace;
+  --font-arcade: 'Press Start 2P', 'VT323', monospace;
 }
 
 html, body {
@@ -46,7 +47,7 @@ section {
 }
 
 h1, h2, h3 {
-  font-weight: 700;
+  font-weight: 500;
   color: var(--ink);
 }
 
@@ -66,6 +67,23 @@ button {
 ::selection {
   background: var(--amber);
   color: var(--panel);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(227, 221, 245, 0.03),
+    rgba(227, 221, 245, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 9998;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 @keyframes type-cursor {

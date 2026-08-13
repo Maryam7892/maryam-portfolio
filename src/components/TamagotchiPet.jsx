@@ -1,21 +1,28 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { playPoke } from "../utils/sound";
+
+const float = keyframes`
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+`;
 
 const Shell = styled.div`
   background: var(--accent);
   border: 3px solid var(--border);
   border-radius: 16px;
   padding: 14px;
-  width: 200px;
+  width: min(200px, 62vw);
   text-align: center;
   box-shadow: var(--shadow);
   flex-shrink: 0;
   cursor: pointer;
   user-select: none;
+  animation: ${float} 3.2s ease-in-out infinite;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 
   &:hover {
+    animation-play-state: paused;
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0 var(--border);
   }
@@ -51,7 +58,7 @@ const Mood = styled.div`
   line-height: 1.2;
   margin-top: 10px;
   color: var(--panel);
-  font-weight: 700;
+  font-weight: 500;
 `;
 
 const Bars = styled.div`

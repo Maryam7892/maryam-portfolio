@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import TypeOnView from "../components/TypeOnView";
 
 const Section = styled.section`
@@ -7,109 +7,107 @@ const Section = styled.section`
   background-color: var(--panel-2);
   border-top: 2px solid var(--border);
   border-bottom: 2px solid var(--border);
-  text-align: center;
+
+  @media (max-width: 600px) {
+    padding: 2.5rem 1.25rem;
+  }
 `;
 
 const SectionTitle = styled.h2`
   font-family: var(--font-pixel);
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
   color: var(--ink);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   letter-spacing: 1px;
+  text-align: center;
 `;
 
-const MarqueeWrapper = styled.div`
-  overflow: hidden;
-  white-space: nowrap;
-  margin: 1.25rem 0;
-  position: relative;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.1rem;
+  max-width: 1000px;
+  margin: 0 auto;
 `;
 
-const scroll = keyframes`
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+const Card = styled.div`
+  background: var(--panel);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow-sm);
 `;
 
-const MarqueeTrack = styled.div`
-  display: inline-flex;
-  animation: ${scroll} 40s linear infinite;
-`;
-
-const Skill = styled.span`
-  display: inline-block;
-  margin: 0 0.5rem;
-  padding: 0.4rem 0.9rem;
-  background-color: var(--panel);
+const CardTitle = styled.h3`
+  font-size: 0.88rem;
   color: var(--ink);
-  font-weight: 700;
-  font-size: 0.8rem;
-  border: 1.5px solid var(--border);
-  border-radius: 6px;
-
-  &:nth-child(3n+2) {
-    background-color: var(--coral-tint);
-    border-color: var(--coral-dark);
-    color: var(--coral-dark);
-  }
-
-  &:nth-child(3n+3) {
-    background-color: var(--blue-tint);
-    border-color: var(--blue-dark);
-    color: var(--blue-dark);
-  }
-`;
-
-const SkillGroupTitle = styled.h4`
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin: 2rem 0 0.75rem;
-  color: var(--muted);
-  text-transform: uppercase;
+  margin: 0 0 0.6rem;
 
   &::before {
-    content: "// ";
-    color: var(--coral-dark);
+    content: "> ";
+    color: var(--coral);
   }
 `;
 
-const DoubleTrack = ({ skills }) => (
-  <MarqueeWrapper>
-    <MarqueeTrack>
-      {skills.concat(skills).map((skill, i) => (
-        <Skill key={i}>{skill}</Skill>
-      ))}
-    </MarqueeTrack>
-  </MarqueeWrapper>
-);
+const TagRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+`;
+
+const Tag = styled.span`
+  display: inline-block;
+  padding: 0.28rem 0.65rem;
+  background: var(--coral-tint);
+  border: 1.5px solid var(--coral-dark);
+  border-radius: 999px;
+  color: var(--blue);
+  font-size: 0.7rem;
+`;
+
+const GROUPS = [
+  {
+    title: "Programming Languages",
+    skills: ["Python", "C++", "C", "SQL"],
+  },
+  {
+    title: "ML/DL Frameworks",
+    skills: ["TensorFlow", "PyTorch", "Keras", "Scikit-learn"],
+  },
+  {
+    title: "LLM & GenAI",
+    skills: ["LangChain", "Groq", "Hugging Face", "Transformers", "RAG", "Vector Databases", "Prompt Engineering", "RAGAS", "DeepEval", "Mem0", "Whisper"],
+  },
+  {
+    title: "Data, NLP & CV",
+    skills: ["Pandas", "NumPy", "Matplotlib", "OpenCV", "NLTK", "SpaCy", "Tesseract"],
+  },
+  {
+    title: "Databases",
+    skills: ["PostgreSQL", "MySQL", "Neo4j", "Qdrant", "SQLAlchemy"],
+  },
+  {
+    title: "MLOps, Cloud & Tools",
+    skills: ["Docker", "Kubernetes", "Jenkins", "Airflow", "MLFlow", "CI/CD", "DVC", "Git", "AWS", "Flask", "Streamlit", "Selenium", "Jupyter Notebook"],
+  },
+];
 
 const AnimatedSkills = () => {
   return (
     <Section id="skills">
-      <TypeOnView as={SectionTitle} text="my skills" speed={40} />
-
-      <SkillGroupTitle>Programming</SkillGroupTitle>
-      <DoubleTrack skills={["Python", "C++", "C", "SQL"]} />
-
-      <SkillGroupTitle>ML/DL Frameworks</SkillGroupTitle>
-      <DoubleTrack skills={["TensorFlow", "PyTorch", "Keras", "Scikit-learn"]} />
-
-      <SkillGroupTitle>LLM & GenAI</SkillGroupTitle>
-      <DoubleTrack skills={["LangChain", "Groq", "Hugging Face", "Transformers", "RAG", "Vector Databases", "Prompt Engineering", "RAGAS", "DeepEval", "Mem0", "Whisper"]} />
-
-      <SkillGroupTitle>Data / NLP / CV</SkillGroupTitle>
-      <DoubleTrack skills={["Pandas", "NumPy", "Matplotlib", "OpenCV", "NLTK", "SpaCy", "Tesseract"]} />
-
-      <SkillGroupTitle>Databases</SkillGroupTitle>
-      <DoubleTrack skills={["PostgreSQL", "MySQL", "Neo4j", "Qdrant", "SQLAlchemy"]} />
-
-      <SkillGroupTitle>MLOps / DevOps</SkillGroupTitle>
-      <DoubleTrack skills={["Docker", "Kubernetes", "Jenkins", "Airflow", "MLFlow", "CI/CD", "DVC", "Git"]} />
-
-      <SkillGroupTitle>Cloud & Other</SkillGroupTitle>
-      <DoubleTrack skills={["AWS", "Flask", "Streamlit", "Selenium", "Jupyter Notebook"]} />
+      <TypeOnView as={SectionTitle} text="skills & technologies" speed={35} />
+      <Grid>
+        {GROUPS.map((group) => (
+          <Card key={group.title}>
+            <CardTitle>{group.title}</CardTitle>
+            <TagRow>
+              {group.skills.map((skill) => (
+                <Tag key={skill}>{skill}</Tag>
+              ))}
+            </TagRow>
+          </Card>
+        ))}
+      </Grid>
     </Section>
   );
 };

@@ -9,11 +9,15 @@ const ResumeSection = styled.section`
   border-bottom: 2px solid var(--border);
   padding: 4rem 2rem;
   text-align: center;
+
+  @media (max-width: 600px) {
+    padding: 2.5rem 1.25rem;
+  }
 `;
 
 const ResumeTitle = styled.h2`
   font-family: var(--font-pixel);
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
   color: var(--ink);
   margin-bottom: 0.75rem;
   letter-spacing: 1px;
@@ -32,7 +36,7 @@ const ResumeButton = styled.a`
   padding: 0.75rem 1.75rem;
   border-radius: 6px;
   border: 2px solid var(--blue-dark);
-  font-weight: 700;
+  font-weight: 500;
   font-size: 0.9rem;
   text-decoration: none;
   box-shadow: var(--shadow-sm);
