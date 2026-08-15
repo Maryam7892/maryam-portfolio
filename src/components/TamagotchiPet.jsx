@@ -46,7 +46,7 @@ const Screen = styled.div`
   font-size: 40px;
   line-height: 1;
   font-family: var(--font-mono);
-  color: var(--panel);
+  color: #060608;
 `;
 
 const Mood = styled.div`
@@ -57,7 +57,7 @@ const Mood = styled.div`
   font-size: 0.75rem;
   line-height: 1.2;
   margin-top: 10px;
-  color: var(--panel);
+  color: #060608;
   font-weight: 500;
 `;
 
@@ -78,7 +78,7 @@ const Bar = styled.div`
 
 const Hint = styled.div`
   font-size: 0.62rem;
-  color: var(--panel);
+  color: #060608;
   margin-top: 8px;
 `;
 

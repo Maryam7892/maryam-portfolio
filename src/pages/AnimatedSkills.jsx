@@ -67,12 +67,12 @@ const Tag = styled.span`
 
 const GROUPS = [
   {
-    title: "ML/DL Frameworks",
-    skills: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn"],
-  },
-  {
     title: "LLM & GenAI",
     skills: ["LangChain", "Hugging Face Transformers", "RAG", "Prompt Engineering", "Agentic Workflows", "RAGAS", "DeepEval"],
+  },
+  {
+    title: "ML/DL Frameworks",
+    skills: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn"],
   },
   {
     title: "AI Domains",

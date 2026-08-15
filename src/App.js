@@ -628,7 +628,7 @@ function App() {
           >
             <Typewriter
               words={[
-                "I build machine learning and LLM systems end-to-end, from the data pipeline to the thing that's actually live in production. Lately that's meant real-time prediction pipelines, RAG systems that combine knowledge graphs with vector search, and a multi-modal healthcare AI assistant. I like taking an open-ended, messy problem and turning it into something that actually works and ships, not just a notebook that runs on my laptop."
+                "I'm an AI/ML Engineer with production experience across crypto, data-intelligence, and healthcare AI. I've built and shipped end-to-end systems: a real-time crypto prediction pipeline, a knowledge-graph-backed RAG engine, and a multi-modal clinical AI assistant. My core strength is taking a system from raw data to something people actually use, not just a notebook that runs on my laptop."
               ]}
               loop={true}
               cursor
@@ -650,7 +650,7 @@ function App() {
         <ProjectGrid>
           <ProjectCard>
             <ImageSlot>
-              <StickerIcon type="star" size={44} color="var(--coral)" />
+              <StickerIcon type="chart" size={44} color="var(--coral)" />
             </ImageSlot>
             <ProjectBody>
             <ProjectTitle>Eth Breakout: Real-Time Crypto Prediction System</ProjectTitle>
@@ -662,7 +662,7 @@ function App() {
           </ProjectCard>
           <ProjectCard>
             <ImageSlot>
-              <StickerIcon type="bubble" size={44} color="var(--coral)" />
+              <StickerIcon type="database" size={44} color="var(--coral)" />
             </ImageSlot>
             <ProjectBody>
             <ProjectTitle>DiscoverIQ: RAG-Based Text-to-SQL Engine</ProjectTitle>
@@ -674,7 +674,7 @@ function App() {
           </ProjectCard>
           <ProjectCard>
             <ImageSlot>
-              <StickerIcon type="hourglass" size={44} color="var(--coral)" />
+              <StickerIcon type="medical" size={44} color="var(--coral)" />
             </ImageSlot>
             <ProjectBody>
             <ProjectTitle>MedGemma: Multi-Modal Clinical AI Assistant</ProjectTitle>
@@ -686,7 +686,7 @@ function App() {
           </ProjectCard>
           <ProjectCard>
             <ImageSlot>
-              <StickerIcon type="disc" size={44} color="var(--coral)" />
+              <StickerIcon type="checklist" size={44} color="var(--coral)" />
             </ImageSlot>
             <ProjectBody>
             <ProjectTitle>LLM Evaluation Toolkit</ProjectTitle>
@@ -698,7 +698,7 @@ function App() {
           </ProjectCard>
           <ProjectCard>
             <ImageSlot>
-              <StickerIcon type="camera" size={44} color="var(--coral)" />
+              <StickerIcon type="bubble" size={44} color="var(--coral)" />
             </ImageSlot>
             <ProjectBody>
             <ProjectTitle>Roman Urdu Chatbot</ProjectTitle>
@@ -710,7 +710,7 @@ function App() {
           </ProjectCard>
           <ProjectCard>
             <ImageSlot>
-              <StickerIcon type="headphones" size={44} color="var(--coral)" />
+              <StickerIcon type="face" size={44} color="var(--coral)" />
             </ImageSlot>
             <ProjectBody>
             <ProjectTitle>TherapEase: Autism Therapy Assistant</ProjectTitle>
@@ -738,7 +738,6 @@ function App() {
                 <li><strong>Real-Time Crypto Breakout Prediction System:</strong> designed and deployed a real-time pipeline processing 5-minute streaming data for ETH, DOGE, and SOL, serving breakout alerts and a liquidation/liquidity-risk heatmap through a live dashboard.</li>
                 <li><strong>RAG-Based Text-to-SQL Engine (DiscoverIQ):</strong> built the retrieval layer, hybrid vector/keyword/graph table retrieval feeding a self-correcting SQL generator with safety guardrails.</li>
                 <li><strong>Multi-Modal Clinical AI Assistant (MedGemma):</strong> built core backend modules integrating four specialized models for image/DICOM diagnostics, prescription OCR, and drug-interaction checks behind one API.</li>
-                <li><strong>Also:</strong> diagnosed and fixed data pipeline reliability issues (timestamp sync, signal thresholds), improving prediction uptime; delivered internal workshops on Mem0 and LLM evaluation frameworks; authored a feasibility study on sub-5-minute pipeline migration.</li>
               </ExperienceDetail>
             </TimelineCard>
           </TimelineItem>

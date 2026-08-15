@@ -24,10 +24,41 @@ const ICONS = {
   bubble: (
     <path d="M4 5 L20 5 A1 1 0 0 1 21 6 L21 14 A1 1 0 0 1 20 15 L9 15 L5 19 L5 15 L4 15 A1 1 0 0 1 3 14 L3 6 A1 1 0 0 1 4 5 Z" />
   ),
+  chart: (
+    <path d="M3 20 L21 20 M6.5 20 L6.5 13 M11.5 20 L11.5 8 M16.5 20 L16.5 4 M13.5 8 L16.5 4 L19.5 8" />
+  ),
+  database: (
+    <>
+      <path d="M4 6 C4 4.3 7.6 3 12 3 C16.4 3 20 4.3 20 6 C20 7.7 16.4 9 12 9 C7.6 9 4 7.7 4 6 Z" />
+      <path d="M4 6 L4 18 C4 19.7 7.6 21 12 21 C16.4 21 20 19.7 20 18 L20 6" />
+      <path d="M4 12 C4 13.7 7.6 15 12 15 C16.4 15 20 13.7 20 12" />
+    </>
+  ),
+  medical: (
+    <>
+      <path d="M12 3 A9 9 0 1 0 12.01 3 Z" />
+      <path d="M12 8 L12 16 M8 12 L16 12" />
+    </>
+  ),
+  checklist: (
+    <>
+      <path d="M6 3 L18 3 A1 1 0 0 1 19 4 L19 20 A1 1 0 0 1 18 21 L6 21 A1 1 0 0 1 5 20 L5 4 A1 1 0 0 1 6 3 Z" />
+      <path d="M9 2.5 L15 2.5 A1 1 0 0 1 16 3.5 L16 4.5 A1 1 0 0 1 15 5.5 L9 5.5 A1 1 0 0 1 8 4.5 L8 3.5 A1 1 0 0 1 9 2.5 Z" />
+      <path d="M8 10.5 L10 12.5 L14 8.5 M8 16.5 L10 18.5 L14 14.5" />
+    </>
+  ),
+  face: (
+    <>
+      <path d="M3 8 L3 4 L7 4 M17 4 L21 4 L21 8 M21 16 L21 20 L17 20 M7 20 L3 20 L3 16" />
+      <circle cx="9.5" cy="11" r="1" fill="currentColor" stroke="none" />
+      <circle cx="14.5" cy="11" r="1" fill="currentColor" stroke="none" />
+      <path d="M9 15.5 C10 16.8 14 16.8 15 15.5" />
+    </>
+  ),
 };
 
 const StickerIcon = ({ type = "star", size = 24, color = "var(--coral)" }) => (
-  <Svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <Svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }} aria-hidden="true">
     <g stroke={color} strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round" fill="none">
       {ICONS[type] || ICONS.star}
     </g>
