@@ -67,28 +67,28 @@ const Tag = styled.span`
 
 const GROUPS = [
   {
-    title: "Programming Languages",
-    skills: ["Python", "C++", "C", "SQL"],
-  },
-  {
     title: "ML/DL Frameworks",
-    skills: ["TensorFlow", "PyTorch", "Keras", "Scikit-learn"],
+    skills: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn"],
   },
   {
     title: "LLM & GenAI",
-    skills: ["LangChain", "Groq", "Hugging Face", "Transformers", "RAG", "Vector Databases", "Prompt Engineering", "RAGAS", "DeepEval", "Mem0", "Whisper"],
+    skills: ["LangChain", "Hugging Face Transformers", "RAG", "Prompt Engineering", "Agentic Workflows", "RAGAS", "DeepEval"],
   },
   {
-    title: "Data, NLP & CV",
-    skills: ["Pandas", "NumPy", "Matplotlib", "OpenCV", "NLTK", "SpaCy", "Tesseract"],
+    title: "AI Domains",
+    skills: ["Computer Vision", "NLP", "LLMs/Agents", "Knowledge Graphs", "Time Series", "OCR/Speech", "Whisper", "Mem0"],
   },
   {
-    title: "Databases",
-    skills: ["PostgreSQL", "MySQL", "Neo4j", "Qdrant", "SQLAlchemy"],
+    title: "Databases & Vector Stores",
+    skills: ["Neo4j", "Qdrant", "PostgreSQL", "MySQL", "SQLAlchemy"],
   },
   {
-    title: "MLOps, Cloud & Tools",
-    skills: ["Docker", "Kubernetes", "Jenkins", "Airflow", "MLFlow", "CI/CD", "DVC", "Git", "AWS", "Flask", "Streamlit", "Selenium", "Jupyter Notebook"],
+    title: "Data, CV & NLP Libraries",
+    skills: ["Pandas", "NumPy", "OpenCV", "NLTK", "SpaCy"],
+  },
+  {
+    title: "Cloud & DevOps",
+    skills: ["AWS", "Docker", "FastAPI", "Flask", "CI/CD", "Git"],
   },
 ];
 

@@ -592,7 +592,7 @@ function App() {
           <TypeOnView as={HeroTitle} text="Hey! I'm Maryam." speed={55} />
           <Blossom size={22} />
         </div>
-        <RoleSubtitle>AI/ML Engineer</RoleSubtitle>
+        <RoleSubtitle>Machine Learning / AI Engineer</RoleSubtitle>
         <HeroSubtitle>
           I build machine learning systems that actually make it to
           production: real-time trading signals, RAG search engines, and
@@ -628,7 +628,7 @@ function App() {
           >
             <Typewriter
               words={[
-                "I build AI systems that actually ship, not just notebooks that work on my laptop. Right now that means real-time crypto pipelines, RAG search engines, and a clinical AI assistant that reads prescriptions. I like the unglamorous parts too: fixing a broken data pipeline at 2am, tuning a model until it stops lying to me, actually getting the thing deployed. Python's home base, but I'll go wherever the problem needs me to."
+                "I build machine learning and LLM systems end-to-end, from the data pipeline to the thing that's actually live in production. Lately that's meant real-time prediction pipelines, RAG systems that combine knowledge graphs with vector search, and a multi-modal healthcare AI assistant. I like taking an open-ended, messy problem and turning it into something that actually works and ships, not just a notebook that runs on my laptop."
               ]}
               loop={true}
               cursor
@@ -655,9 +655,9 @@ function App() {
             <ProjectBody>
             <ProjectTitle>Eth Breakout: Real-Time Crypto Prediction System</ProjectTitle>
             <ProjectDesc>
-              Watches Ethereum, Dogecoin, and Solana in real time and flags breakouts before they fully happen, using a mix of rule-based logic and ML on 5-minute candles. Also built a heatmap that shows where leveraged traders are most exposed, so you can see the risk, not just the price.
+              Traders needed early breakout signals across volatile crypto markets from continuous streaming data. I designed and deployed the real-time prediction pipeline end-to-end: a live system processing 5-minute data for ETH, DOGE, and SOL, serving breakout alerts and a liquidation/liquidity-risk heatmap through a real-time dashboard.
             </ProjectDesc>
-            <TechLine><strong>Tech:</strong> Python, SQLAlchemy, Pandas, Scikit-learn, PostgreSQL, WebSockets, Streamlit</TechLine>
+            <TechLine><strong>Tech:</strong> Python, Pandas, Scikit-learn, PostgreSQL, WebSockets, Streamlit</TechLine>
             </ProjectBody>
           </ProjectCard>
           <ProjectCard>
@@ -665,11 +665,11 @@ function App() {
               <StickerIcon type="bubble" size={44} color="var(--coral)" />
             </ImageSlot>
             <ProjectBody>
-            <ProjectTitle>DiscoverIQ: RAG-Based Text-to-SQL & Knowledge Graph Query Engine</ProjectTitle>
+            <ProjectTitle>DiscoverIQ: RAG-Based Text-to-SQL Engine</ProjectTitle>
             <ProjectDesc>
-              Ask it a question in plain English, it writes and runs the SQL for you. Under the hood it pulls context from a Neo4j knowledge graph and Qdrant vector search before handing things to the LLM, so queries are grounded in your actual schema instead of guessed.
+              Non-technical users needed to query large relational databases without writing SQL. I built the retrieval layer: hybrid vector, keyword, and graph table retrieval feeding a self-correcting SQL generator with safety guardrails, enabling natural-language querying over arbitrary customer databases.
             </ProjectDesc>
-            <TechLine><strong>Tech:</strong> Python, Neo4j, Qdrant, PostgreSQL, LangChain, Groq LLM</TechLine>
+            <TechLine><strong>Tech:</strong> Neo4j, Qdrant, LangChain, Groq (Llama-3.3-70B), OpenAI Embeddings, PostgreSQL</TechLine>
             </ProjectBody>
           </ProjectCard>
           <ProjectCard>
@@ -679,9 +679,9 @@ function App() {
             <ProjectBody>
             <ProjectTitle>MedGemma: Multi-Modal Clinical AI Assistant</ProjectTitle>
             <ProjectDesc>
-              A clinical assistant that can look at a medical image, read a doctor's handwriting off a prescription, and flag dangerous drug interactions, all in one place. Built to make the tedious, error-prone parts of healthcare a little safer.
+              Clinicians needed one assistant for image diagnostics, prescription reading, and drug-safety checks instead of juggling separate tools. I built the core backend integrating four specialized models into a working assistant: medical image/DICOM diagnostics, prescription OCR, and live FDA/RxNorm-grounded drug-interaction checks behind one API.
             </ProjectDesc>
-            <TechLine><strong>Tech:</strong> MedGemma-4b-it, Whisper-large-v3, TxGemma-9b-chat, FDA API, Python, Flask</TechLine>
+            <TechLine><strong>Tech:</strong> MedGemma-4B, TxGemma-9B, Qwen3-VL, Whisper, FastAPI, PyDICOM, FDA/RxNorm APIs</TechLine>
             </ProjectBody>
           </ProjectCard>
           <ProjectCard>
@@ -693,7 +693,7 @@ function App() {
             <ProjectDesc>
               Most teams eyeball whether their LLM output "looks fine." This toolkit doesn't let you get away with that: it covers 12 evaluation categories from safety to long-context reasoning, with runnable notebooks and a dashboard. Used it to run an internal workshop so the team could stop guessing.
             </ProjectDesc>
-            <TechLine><strong>Tech:</strong> Python, Groq, RAGAS, DeepEval, HuggingFace Evaluate, PromptBench, Streamlit</TechLine>
+            <TechLine><strong>Tech:</strong> Python, Groq, RAGAS, DeepEval, HuggingFace Evaluate, PromptBench</TechLine>
             </ProjectBody>
           </ProjectCard>
           <ProjectCard>
@@ -701,11 +701,11 @@ function App() {
               <StickerIcon type="camera" size={44} color="var(--coral)" />
             </ImageSlot>
             <ProjectBody>
-            <ProjectTitle>Straight Egyptian Arabian Horse Knowledge Graph</ProjectTitle>
+            <ProjectTitle>Roman Urdu Chatbot</ProjectTitle>
             <ProjectDesc>
-              A graph database of Egyptian Arabian horse bloodlines, because pedigree charts on paper don't scale. Trace a horse's lineage, show history, and stable records interactively, all packaged in Docker so it runs anywhere.
+              A Rasa-based conversational AI for Roman Urdu (code-mixed, transliterated Urdu) small talk, with 30+ intents, rule-based dialogue policies, and custom Python actions for dynamic responses. Extended with a full voice-to-voice mode, and deployed live on Streamlit Cloud.
             </ProjectDesc>
-            <TechLine><strong>Tech:</strong> Python, Pandas, Neo4j, Streamlit, PyVis, Docker</TechLine>
+            <TechLine><strong>Tech:</strong> Rasa, Streamlit, gTTS, SpeechRecognition, Python</TechLine>
             </ProjectBody>
           </ProjectCard>
           <ProjectCard>
@@ -715,9 +715,9 @@ function App() {
             <ProjectBody>
             <ProjectTitle>TherapEase: Autism Therapy Assistant</ProjectTitle>
             <ProjectDesc>
-              My final year project: a 3D digital twin that reads a child's emotions in real time during autism therapy sessions, and gives therapists a dashboard to track progress instead of relying on memory and notes.
+              My final year project: a 3D digital twin with real-time facial emotion detection to support autism therapy sessions, combining a browser-based 3D avatar with a live computer-vision emotion-classification backend.
             </ProjectDesc>
-            <TechLine><strong>Tech:</strong> React, Three.js, OpenCV, Flask, TensorFlow, DeepFace, MediaPipe</TechLine>
+            <TechLine><strong>Tech:</strong> React, Three.js, OpenCV, MediaPipe, Flask, TensorFlow, DeepFace</TechLine>
             </ProjectBody>
           </ProjectCard>
         </ProjectGrid>
@@ -734,21 +734,11 @@ function App() {
               <ExperienceTitle>Junior Machine Learning Engineer <ExperienceOrg>@ Tensor Labs</ExperienceOrg></ExperienceTitle>
               <ExperienceDate>Sep 2025 - Present</ExperienceDate>
               <ExperienceDetail>
-                <li><strong>Real-time ML prediction pipelines:</strong> designed and deployed pipelines to detect breakout patterns across Ethereum, Dogecoin, and Solana, processing streaming market data at 5-minute intervals.</li>
-                <li><strong>RAG-based query engine (DiscoverIQ):</strong> engineered a RAG pipeline translating natural language into SQL, integrating a Neo4j knowledge graph, Qdrant vector search, and LLM-based query generation over PostgreSQL.</li>
-                <li><strong>Multi-modal clinical AI assistant (MedGemma):</strong> built core modules for medical image diagnostics, prescription OCR, and drug-interaction checks using vision-language and LLM models.</li>
-                <li><strong>Data pipeline reliability:</strong> diagnosed and resolved timestamp/interval synchronization and signal threshold issues to improve prediction reliability and uptime.</li>
-                <li><strong>Technical workshops:</strong> delivered internal workshops on Mem0 (LLM memory systems) and Harness Engineering; authored an article on Harness Engineering and Open Knowledge Format (Medium, forthcoming).</li>
-              </ExperienceDetail>
-            </TimelineCard>
-          </TimelineItem>
-          <TimelineItem>
-            <YearBadge>2024</YearBadge>
-            <TimelineCard>
-              <ExperienceTitle>Lab Demonstrator - Machine Learning <ExperienceOrg>@ FAST NUCES Islamabad</ExperienceOrg></ExperienceTitle>
-              <ExperienceDate>Sep 2024 - Dec 2024</ExperienceDate>
-              <ExperienceDetail>
-                <li>Led weekly lab sessions on feature engineering, hyperparameter tuning, and applied machine learning demonstrations for undergraduate students.</li>
+                <li>Build and ship production ML/LLM systems across crypto, data-intelligence, and healthcare products, owning data pipelines, model integration, and reliability.</li>
+                <li><strong>Real-Time Crypto Breakout Prediction System:</strong> designed and deployed a real-time pipeline processing 5-minute streaming data for ETH, DOGE, and SOL, serving breakout alerts and a liquidation/liquidity-risk heatmap through a live dashboard.</li>
+                <li><strong>RAG-Based Text-to-SQL Engine (DiscoverIQ):</strong> built the retrieval layer, hybrid vector/keyword/graph table retrieval feeding a self-correcting SQL generator with safety guardrails.</li>
+                <li><strong>Multi-Modal Clinical AI Assistant (MedGemma):</strong> built core backend modules integrating four specialized models for image/DICOM diagnostics, prescription OCR, and drug-interaction checks behind one API.</li>
+                <li><strong>Also:</strong> diagnosed and fixed data pipeline reliability issues (timestamp sync, signal thresholds), improving prediction uptime; delivered internal workshops on Mem0 and LLM evaluation frameworks; authored a feasibility study on sub-5-minute pipeline migration.</li>
               </ExperienceDetail>
             </TimelineCard>
           </TimelineItem>
@@ -758,8 +748,7 @@ function App() {
               <ExperienceTitle>Artificial Intelligence Intern <ExperienceOrg>@ AIM Lab, Islamabad</ExperienceOrg></ExperienceTitle>
               <ExperienceDate>Jun 2023 - Aug 2023</ExperienceDate>
               <ExperienceDetail>
-                <li>Built a tool that auto-generates presentation slide decks from natural language prompts using NLP and computer vision techniques.</li>
-                <li>Applied pre-trained vision models for content understanding and image matching tasks.</li>
+                <li>Built a tool that auto-generates presentation slide decks from natural-language prompts using NLP and computer vision, applying pre-trained vision models for content understanding and image matching.</li>
               </ExperienceDetail>
             </TimelineCard>
           </TimelineItem>
@@ -791,7 +780,7 @@ function App() {
                 <UnlockedTag>achievement unlocked</UnlockedTag>
                 <MedalGlow><PixelIcon type="certifications" color="var(--coral)" size={36} /></MedalGlow>
                 <h3>AWS Certified AI Practitioner</h3>
-                <IssuerPill>AWS, Passed March 2026</IssuerPill>
+                <IssuerPill>AWS, 2026</IssuerPill>
               </CardFront>
               <CardBack>
                 <BackLabel>[ details ]</BackLabel>
