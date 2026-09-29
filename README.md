@@ -1,95 +1,94 @@
-# Maryam's Portfolio
+# Maryam Amjad · AI Engineer
 
-A dark, purple-and-black personal portfolio for **Maryam Amjad**, AI/ML Engineer. Built as a single-page React app with a playful, pixel/retro-computer personality: a tamagotchi-style pet, a pixel-art cat mascot, sound effects, an optional chiptune background loop, and a professional AI chatbot you can actually talk to.
+I design and build AI products that people actually use, turning complex data into tools that are reliable, clear and genuinely useful.
 
-👉 **Live site:** [maryam-amjad.vercel.app](https://maryam-amjad.vercel.app/)
+**🌐 Portfolio:** [maryam-amjad.vercel.app](https://maryam-amjad.vercel.app/)<br>
+**📄 Résumé:** [Download PDF](https://maryam-amjad.vercel.app/Maryam_Amjad_Resume.pdf)
 
 ---
 
-## Features
+## About me
 
-- **Hero** with an availability badge, animated typewriter title, and a tamagotchi-style pet you can poke for a mood change
-- **About** section with a two-column layout: bio (typewriter effect) alongside a custom pixel-art cat mascot, with small cherry-blossom flourishes around headings
-- **Skills & Technologies** shown as a card grid grouped by category, with pill-style tags
-- **Projects** as terminal/window-style cards with a top image slot, description, tech tags
-- **Experience & Education** shown as a connected vertical timeline
-- **Certifications** shown as "achievement unlocked" badges (flip to see details)
-- **Contact** section with a working mailto-based form plus a short info panel and social links
-- **Resume download** button (serves the actual PDF from `public/`)
-- **Professional AI chatbot**: a floating "chat with me" button (bottom-right) links out to a [Qualzo](https://qualzo.app) Professional Companion chatbot that can answer questions about my background on my behalf
-- **Scroll-to-top button** (bottom-left) appears once you've scrolled down
-- **Sound design**: short synthesized click/poke/send sound effects (Web Audio API, no audio files) plus an optional chiptune-style background music loop, toggleable from the nav
-- **Responsive**: collapsible hamburger nav on mobile, fluid type sizing, no fixed-width overflow traps
-- Custom square cursor, subtle CRT-style scanline overlay, and hover/press micro-interactions throughout
+I'm an AI engineer with about a year of professional experience across crypto, data intelligence and healthcare AI. I studied Artificial Intelligence at FAST NUCES, Islamabad, then spent a year building production LLM and AI systems at Tensor Labs.
 
-## Tech Stack
+My core strength is taking a system from raw data to something people actually use, not just a notebook that runs on my laptop.
 
-- [React](https://react.dev/) (Create React App)
-- [styled-components](https://styled-components.com/) for all styling (theme lives in CSS custom properties in `src/index.css`, so the whole palette can be re-themed from one file)
-- [Framer Motion](https://www.framer.com/motion/) for scroll-in animations
-- [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter) for the hero/about typewriter effect
-- Web Audio API for all sound effects and background music (synthesized, no audio assets)
-- Deployed on [Vercel](https://vercel.com/)
+**Focused on:** LLM agents · RAG & knowledge graphs · Multimodal AI · Healthcare AI
 
-## Getting Started
+---
 
-```bash
-git clone https://github.com/Maryam7892/maryam-portfolio.git
-cd maryam-portfolio
-npm install
-npm start
-```
+## Featured projects
 
-Runs the app at [http://localhost:3000](http://localhost:3000) with hot reload.
+### DiscoverIQ: RAG-based text-to-SQL engine
+Lets non-technical users query large databases in plain language. I built the self-correcting SQL loop: when a generated query fails, the agent analyses the error, asks for a fix, validates the syntax and retries with duplicate-query detection, so users never see the failure.
+*OpenAI · Llama 3.3 70B on Groq · Neo4j · Qdrant · PostgreSQL*
 
-```bash
-npm run build
-```
+### MedCompanion: patient-facing AI health assistant
+Reads medical scans and prescriptions, checks drug interactions, transcribes clinical audio and answers questions from the patient's own health history. In a team of three, I built the prescription OCR, the drug-interaction checker, and vitals, symptom, allergy and medicine tracking.
+*MedGemma 4B · TxGemma 9B · Qwen3-VL 8B · Whisper · Docker*
 
-Builds an optimized production bundle into `build/`.
+### Eth Breakout: real-time crypto prediction
+A live pipeline processing 5-minute streaming data for ETH, DOGE and SOL, serving breakout alerts and a liquidation and liquidity-risk heatmap on a real-time dashboard.
+*Python · scikit-learn · PostgreSQL · WebSockets · Streamlit*
 
-## Project Structure
+### More work
+- **LLM Evaluation Toolkit:** open-source toolkit covering 12 evaluation categories, from RAG and text-to-SQL to safety and long-context reasoning. Used as the basis for an internal engineering workshop.
+- **Horse Pedigree Graph:** turned records of Straight Egyptian horses, stables and competitions into a Neo4j graph, with 5-generation pedigrees and a ranked breeding-pair recommender.
+- **Lead Finder & Outreach:** finds business leads by service and location, scores contact details, and sends personalised outreach with rate limiting. In active use.
+- **TherapEase:** final-year project; a 3D digital twin with real-time facial emotion detection to support autism therapy sessions.
+- **Roman Urdu Chatbot:** Rasa chatbot for Roman Urdu small talk with 30+ intents and a voice-to-voice mode.
 
-```
-public/
-  assets/            static images (e.g. the pixel-cat mascot)
-  Maryam_Amjad_Resume.pdf
-src/
-  App.js             main page: hero, about, projects, skills, experience,
-                      education, certifications, resume, contact
-  index.css           theme (CSS variables), global styles
-  components/         reusable pieces (Navbar, TamagotchiPet, CatMascot,
-                       Blossom, StickerIcon, PixelIcon, TypeOnView,
-                       ResumeDownload, ScrollToTop, ChatLink, ...)
-  pages/
-    AnimatedSkills.jsx  skills card grid
-  utils/
-    sound.js            synthesized click/poke/send effects + background
-                         chiptune loop
-```
+---
 
-Note: `src/components/WorldMap.jsx` is an earlier game-map navigation
-concept that isn't currently rendered on the page, kept in the repo in
-case it's revived later (e.g. as a footer easter egg), safe to delete if
-not needed.
+## What I build
 
-## Theming
+| Area | What that looks like |
+|---|---|
+| **LLM apps & agents** | Agentic workflows that plan, call tools and recover from their own mistakes |
+| **RAG & search** | Hybrid vector, keyword and graph retrieval that grounds answers in real data |
+| **Knowledge graphs** | Connected data modelled in Neo4j, so patterns and recommendations surface |
+| **Multimodal & vision** | Reading scans, prescriptions, audio and faces with vision and speech models |
+| **LLM evaluation** | Measuring quality, safety and failure cases before anything ships |
+| **Real-time & deployment** | Streaming pipelines, APIs and dashboards on AWS and Docker |
 
-Every color in the site is a CSS custom property defined once in
-`src/index.css` (`--bg`, `--panel`, `--coral`, `--blue`, `--amber`, etc.).
-Changing the palette is a matter of editing that one file rather than
-hunting through components.
+---
 
-## Resume
+## Tools I work with
 
-The download button on the site serves the PDF directly from
-`public/Maryam_Amjad_Resume.pdf`. To update it, replace that file (keep
-the same filename, or update the filename referenced in
-`src/components/ResumeDownload.jsx`).
+**Core:** Python · PyTorch · TensorFlow · Hugging Face · Neo4j · Qdrant · AWS · Docker<br>
+**Also:** LangChain · RAG · Agentic workflows · OpenAI · Groq · RAGAS · DeepEval · Whisper · Mem0 · FastAPI · PostgreSQL · OpenCV · spaCy · Streamlit
 
-## Contact
+---
 
-- Email: maryamamjad7892@gmail.com
-- [LinkedIn](https://www.linkedin.com/in/maryam-amjad-82a595243/)
-- [GitHub](https://github.com/Maryam7892)
-- [Chat with my AI companion](https://qualzo.app/chat/cmqgfbyg0002njqar47r0sgtm)
+## Experience
+
+**Junior Machine Learning Engineer · Tensor Labs** · *Sep 2025 – Sep 2026*
+Built production LLM and AI systems across crypto, data intelligence and healthcare, including DiscoverIQ, MedCompanion, a real-time crypto breakout system and a Neo4j pedigree graph.
+
+**Artificial Intelligence Intern · AIM Lab, Islamabad** · *Jun – Aug 2023*
+Built a tool that generates slide decks from natural-language prompts, using pre-trained vision models for content understanding and image matching.
+
+---
+
+## Education
+
+**B.S. Artificial Intelligence** · FAST NUCES, Islamabad · *2021 – 2025*
+Coursework: Deep Learning, Generative AI, Computer Vision, NLP
+
+## Certifications
+
+- AWS Certified AI Practitioner (AWS, 2026)
+- Generative AI with LLMs (DeepLearning.AI, 2025)
+- AI Agents with RAG & LangChain (IBM, 2025)
+- AWS Cloud Essentials (AWS, 2025)
+- Convolutional Neural Networks (DeepLearning.AI, 2024)
+
+---
+
+## Let's build something together
+
+Hiring for an AI role or have a project in mind? I'd love to hear about it.
+
+📧 [maryamamjad7892@gmail.com](mailto:maryamamjad7892@gmail.com)<br>
+💼 [LinkedIn](https://www.linkedin.com/in/maryam-amjad-82a595243/)<br>
+🐙 [GitHub](https://github.com/Maryam7892)
